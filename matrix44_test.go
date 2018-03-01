@@ -8,19 +8,23 @@ package geometry
 	file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-// Matrix44 is a 4x4 transformation matrix.
-type Matrix44 struct {
-	m [4][4]float64
-}
+import (
+	"testing"
+)
 
-// MakeIdentityMatrix returns a new identity matrix.
-func MakeIdentityMatrix() Matrix44 {
-	return Matrix44{
+func TestMakeIdentifyMatrix(t *testing.T) {
+	expected := Matrix44{
 		m: [4][4]float64{
 			{1, 0, 0, 0},
 			{0, 1, 0, 0},
 			{0, 0, 1, 0},
 			{0, 0, 0, 1},
 		},
+	}
+
+	var received = MakeIdentityMatrix()
+
+	if received != expected {
+		t.Errorf("MakeIdentifyMatrix failed - received: %.2f, expected: %.2f", received, expected)
 	}
 }
