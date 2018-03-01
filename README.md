@@ -1,1 +1,1 @@
-# geometry
+# geometry - A 3D geometry library written in GoLang
